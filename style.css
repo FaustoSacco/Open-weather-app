@@ -1,0 +1,17 @@
+body {
+  background-color: lightblue;
+}
+h1 {
+  color: purple;
+  margin: auto;
+  text-align: center;
+  padding: 20px;
+}
+.main-container {
+  background-color: lightgoldenrodyellow;
+  margin: auto;
+  text-align: center;
+  padding: 40px;
+  height: 400px;
+  width: 400px;
+}
