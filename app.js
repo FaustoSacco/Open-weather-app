@@ -9,14 +9,28 @@ async function callApi() {
   let sunset = data.sys.sunset;
 
   dateObj = new Date(sunrise * 1000);
-  sunrise = dateObj.getUTCHours() + ":" + dateObj.getUTCMinutes();
+  let sunriseHours = dateObj.getUTCHours();
+  sunrise =
+    leftFillNum(sunriseHours, 2) +
+    ":" +
+    leftFillNum(dateObj.getUTCMinutes(), 2);
   dateObj = new Date(sunset * 1000);
-  sunset = dateObj.getUTCHours() + ":" + dateObj.getUTCMinutes();
+
+  let minutes = dateObj.getUTCMinutes();
+
+  sunset =
+    dateObj.getUTCHours() + ":" + leftFillNum(dateObj.getUTCMinutes(), 2);
 
   document.getElementById("temp").innerHTML = temp;
   document.getElementById("weather").innerHTML = weather;
   document.getElementById("sunrise").innerHTML = sunrise;
   document.getElementById("sunset").innerHTML = sunset;
   console.log(data);
+
+  console.log(leftFillNum(minutes, 2));
 }
 callApi();
+
+function leftFillNum(num, targetLength) {
+  return num.toString().padStart(targetLength, "0");
+}
